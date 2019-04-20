@@ -17,14 +17,18 @@
                 name: 'Chirag',
                 age: 22
             }
-            handleMouseOver(e){
+            handleMouseOver = (e) => {
                 console.log(e.target, e.pageX);
             }
-            handleClick(e){
+            handleClick = (e) => {                  //the arrow funtion here lets 'this' to act as instance of the component
                 console.log(e.target);
+                console.log(this.state);            //'this' keyword here has instance of the component
+                this.setState({
+                    name: 'Yoshi'
+                });
                 // console.log(this.state); --> will not work, see next video
             }
-            handleCopy(e){
+            handleCopy = (e) => {
                 console.log('Try being original for once');
             }
             render(){
