@@ -12,12 +12,16 @@
     <div id="app"></div>
     <!--Now we create a component in JavaScript-->
     <script type="text/babel">
-        class App extends React.Component {         //To create a component we will use JS classes here, 
+        class App extends React.Component {         //To create a component we will use JS classes here, it derives from Core REact library
+            state = {
+                name: 'Chirag',
+                age: 22
+            }
           render(){
             return(                                 //It can have only one root element here which is <div>
               <div className="app-content">         {/*here class='Id' can't be used as it is */}
                 <h1>Hello, React App welcomes you!</h1>
-                <p>Random number: { Math.random() * 10 }</p>            {/*Here, we can't directly write text, but need to write in brackets telling it is JSX and nees to be dynamically rendered */}
+                <p>My name is { this.state.name } and I am { this.state.age }</p>            {/*Here, we can't directly write text, but need to write in {brackets} telling it is JSX and needs to be dynamically rendered */}
               </div>
             )
           }
