@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>         <!--core react library-->
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>         <!--REact DOM library-->
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!--Now we create a component in JavaScript-->
+    <script type="text/babel">
+        class App extends React.Component {         //To create a component we will use JS classes here, it derives from Core REact library
+            state = {
+                name: 'Chirag',
+                age: 22
+            }
+            handleMouseOver(e){
+                console.log(e.target, e.pageX);
+            }
+            handleClick(e){
+                console.log(e.target);
+                // console.log(this.state); --> will not work, see next video
+            }
+            handleCopy(e){
+                console.log('Try being original for once');
+            }
+            render(){
+                return(                                 //It can have only one root element here which is <div>
+                    <div className="app-content">         {/*here class='Id' can't be used as it is */}
+                        <h1>Hello, React App welcomes you!</h1>
+                        <p>My name is { this.state.name } and I am { this.state.age }</p>            {/*Here, we can't directly write text, but need to write in {brackets} telling it is JSX and needs to be dynamically rendered */}
+                        <button onClick={this.handleClick}>Click me</button>                    {/*onClick is Event, handleClick is its toDo function, target is its property defined with function definition */}
+                        <button onMouseOver={this.handleMouseOver}>Hover me</button>                {/* onMouseOver, handleMouseOver, target & pageX */}
+                        <p onCopy={this.handleCopy}>What we think, we become</p>                    {/* onCopy, handleCopy, text print */}
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('app'));           //It tells DOM to render component 'App' for the body
+      </script>
+</body>
+</html>
